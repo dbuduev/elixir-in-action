@@ -40,6 +40,6 @@ defmodule Todo.Database do
   def handle_info(:stop, state), do: {:stop, :normal, state}
   def handle_info(_, state), do: {:noreply, state}
 
-  defp key_to_index(key), do: :erlang.phash(key, @workers_num)
+  defp key_to_index(key), do: :erlang.phash2(key, @workers_num)
   defp get_worker(workers, key), do: HashDict.fetch!(workers, key_to_index(key))
 end
