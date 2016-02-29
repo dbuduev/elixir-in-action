@@ -6,7 +6,7 @@ defmodule Profiler do
     module.start_link
 
     time = execution_time(
-      fn -> module.cached(:index, &WebServer.index/0) end,
+      fn -> module.cached(:index, &WebServer.fail/0) end,
       operations_count,
       concurrency_level
     )

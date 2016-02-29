@@ -4,4 +4,10 @@ defmodule WebServer do
 
     "<html>...</html>"
   end
+
+  def fail do
+    :timer.sleep(100)
+
+    raise "Something went wrong"
+  end
 end
